@@ -1,0 +1,145 @@
+/* =============== Thème (noir/jaune) =============== */
+:root{
+  --black:#000000;
+  --yellow:#FFD84D;
+  --bg:#0b0b0b;
+  --paper:#ffffff;
+  --ink:#1a1a1a;
+  --muted:#666a73;
+  --line:#e8e8ec;
+  --shadow:0 14px 40px rgba(0,0,0,.12);
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+img{ max-width:100%; display:block; }
+
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#fafafa 0%, #f4f4f6 100%);
+  line-height:1.7;
+}
+
+/* =============== Layout =============== */
+.container{ width:1120px; max-width:92%; margin:0 auto; }
+.section{ padding:64px 0; }
+.section.alt{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.section-title{ font-size:32px; margin:0 0 24px; text-align:center; }
+
+/* =============== Topbar =============== */
+.topbar{
+  background:var(--black);
+  color:#fff;
+  position:sticky; top:0; z-index:100;
+  box-shadow:0 1px 0 rgba(255,255,255,.04);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
+
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+
+/* ✅ Une seule définition cohérente pour le logo */
+.logo{
+  width:56px; height:56px; object-fit:contain;
+  image-rendering:-webkit-optimize-contrast;
+}
+
+.menu a{
+  color:#fff; text-decoration:none; margin-left:22px; font-weight:600; opacity:.9;
+}
+.menu a:hover{ opacity:1; }
+
+/* =============== Buttons =============== */
+.btn{ display:inline-block; padding:12px 18px; border-radius:8px; font-weight:800; text-decoration:none; }
+.btn-primary{ background:var(--yellow); color:var(--black); }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-outline{ border:2px solid var(--yellow); color:var(--black); background:transparent; }
+.btn-outline:hover{ background:var(--yellow); }
+.btn.full{ width:100%; }
+
+/* =============== Hero =============== */
+.hero{ background:var(--paper); border-bottom:1px solid var(--line); }
+.hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:32px; align-items:center; padding:56px 0; }
+.kicker{ color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin:0 0 8px; }
+.hero h1{ font-size:44px; line-height:1.15; margin:0 0 12px; }
+.hero .lead{ font-size:18px; color:#3a3d44; margin:0 0 18px; }
+.cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+.tagline{ color:#3a3d44; margin-top:8px; }
+
+/* ✅ Style de l'image du hero */
+.hero-media img{
+  width:100%;
+  height:550px;            /* hauteur visible en desktop */
+  object-fit:cover;        /* recadre proprement sans déformer */
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+
+/* =============== Cards & grids =============== */
+.card{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; box-shadow:var(--shadow); }
+.cols-2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+
+.feature i{ font-size:28px; color:var(--black); background:var(--yellow); border-radius:8px; padding:8px; }
+.feature h3{ margin:12px 0 6px; }
+
+.long .card h3{ margin:0 0 6px; }
+
+.facts h3{ margin:0 0 6px; }
+.check{ list-style:none; padding:0; margin:8px 0 0; }
+.check li{ margin:6px 0; }
+.check li::before{ content:"✔"; color:#1da05a; margin-right:8px; }
+
+/* =============== Steps =============== */
+.steps{ list-style:none; padding:0; max-width:920px; margin:0 auto; }
+.steps li{ background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px; margin:10px 0; box-shadow:var(--shadow); }
+
+/* =============== Typeform =============== */
+.tf-embed{
+  width:100%;
+  min-height:620px;       /* ajuste 600–800px si tu veux */
+  margin:0 auto;
+}
+
+/* =============== FAQ =============== */
+.faq details{ background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; box-shadow:var(--shadow); }
+.faq summary{ cursor:pointer; font-weight:700; }
+.faq p{ margin:8px 0 0; color:#3a3d44; }
+
+/* =============== Footer =============== */
+.footer{ background:#0f0f10; color:#c9cbd1; padding:22px 0; }
+.foot-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; align-items:center; text-align:center; }
+.footer a{ color:#c9cbd1; text-decoration:none; }
+.footer a:hover{ text-decoration:underline; }
+
+/* =============== Responsive =============== */
+@media (max-width:980px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-media img{ height:340px; }   /* hauteur plus petite sur mobile/tablette */
+  .cols-2{ grid-template-columns:1fr; }
+  .grid-3{ grid-template-columns:1fr; }
+  .grid-4{ grid-template-columns:1fr 1fr; }
+  .foot-grid{ grid-template-columns:1fr; gap:6px; }
+  .logo{ width:44px; height:44px; }
+}
+
+/* Optionnel : si un jour tu utilises .brand-text */
+.brand-text{ font-weight:800; color:#fff; font-size:1.2rem; }
+@media (max-width:600px){ .brand-text{ display:none; } }
+
+/* === Ajustement centrage section Engagements durables === */
+#durabilite {
+  display: flex;
+  justify-content: center;
+}
+
+#durabilite .container {
+  max-width: 1120px;
+  width: 100%;
+}
+
+#durabilite .grid-3 {
+  justify-content: center;
+  text-align: center;
+}
